@@ -1,4 +1,4 @@
-package main
+package websocket
 
 import (
 	"github.com/gin-gonic/gin"

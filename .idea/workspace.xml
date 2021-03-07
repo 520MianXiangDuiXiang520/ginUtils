@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d85053b4-0551-4653-80cf-bebece82fdf0" name="默认的" comment="add: 添加几个中间件">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d85053b4-0551-4653-80cf-bebece82fdf0" name="默认的" comment="add: 添加 gin 请求转 Websocket 工具">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +50,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ginUtils\websocket" />
       <recent name="E:\ginUtils" />
     </key>
   </component>
@@ -141,7 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add: first commit codes" />
     <MESSAGE value="add: 添加几个中间件" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 添加几个中间件" />
+    <MESSAGE value="add: 添加 gin 请求转 Websocket 工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 添加 gin 请求转 Websocket 工具" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
