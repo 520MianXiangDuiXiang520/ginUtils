@@ -2,7 +2,7 @@ package ginUtils
 
 import (
 	"fmt"
-	"github.com/520MianXiangDuiXiang520/GoTools/check"
+	c "github.com/520MianXiangDuiXiang520/GoTools/check"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -18,7 +18,8 @@ type Request struct {
 }
 
 type Response struct {
-	Resp BaseRespInter
+	RespCode int
+	Resp     BaseRespInter
 }
 
 type BusinessLogic func(req *Request, resp *Response) error
@@ -45,13 +46,16 @@ func Handler(cf BusinessLogic, lf BusinessLogic, req interface{}) gin.HandlerFun
 			context.JSON(http.StatusOK, resp)
 		} else {
 			// 标签检查请求参数
-			if !check.CheckRequest(request) {
+			if !c.CheckRequest(request) {
 				resp.Header = ParamErrorRespHeader
 				context.Set("resp", resp)
 				context.JSON(http.StatusOK, resp)
 			} else {
 				// 自定义方法检查请求参数
-				res := Response{}
+				res := Response{
+					RespCode: http.StatusOK,
+					Resp:     SuccessRespHeader,
+				}
 				req := Request{
 					Ctx: context,
 					Req: request,
@@ -63,7 +67,7 @@ func Handler(cf BusinessLogic, lf BusinessLogic, req interface{}) gin.HandlerFun
 				} else {
 					err := lf(&req, &res)
 					if err != nil {
-						context.JSON(http.StatusBadRequest, res.Resp)
+						context.JSON(res.RespCode, res.Resp)
 					} else {
 						context.Set("resp", res.Resp)
 						context.JSON(http.StatusOK, res.Resp)
@@ -99,7 +103,7 @@ func EasyHandler(cf CheckFunc, lf LogicFunc, req interface{}) gin.HandlerFunc {
 			context.JSON(http.StatusOK, resp)
 		} else {
 			// 标签检查请求参数
-			if !check.CheckRequest(request) {
+			if !c.CheckRequest(request) {
 				resp.Header = ParamErrorRespHeader
 				context.Set("resp", resp)
 				context.JSON(http.StatusOK, resp)
