@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d85053b4-0551-4653-80cf-bebece82fdf0" name="默认的" comment="fix: 修复包名">
+    <list default="true" id="d85053b4-0551-4653-80cf-bebece82fdf0" name="默认的" comment="fix: 修复 Handler 无法设置 http response code">
+      <change afterPath="$PROJECT_DIR$/middleware/auth_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../桌面文件/面试准备/奇安信/奇安信-go" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,69 +56,70 @@
       <recent name="E:\ginUtils" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (4)">
+  <component name="RunManager" selected="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils/middleware 中的 TestBaseAuthMiddleware">
     <configuration name="github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="ginUtils" />
       <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/520MianXiangDuiXiang520/ginUtils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestHandler\E$" />
       <method v="2" />
     </configuration>
     <configuration name="github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="ginUtils" />
       <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/520MianXiangDuiXiang520/ginUtils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestHandler\E$" />
       <method v="2" />
     </configuration>
     <configuration name="github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="ginUtils" />
       <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/520MianXiangDuiXiang520/ginUtils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestHandler\E$" />
       <method v="2" />
     </configuration>
     <configuration name="github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="ginUtils" />
       <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="github.com/520MianXiangDuiXiang520/ginUtils" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestHandler\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="github.com/520MianXiangDuiXiang520/ginUtils/middleware 中的 TestBaseAuthMiddleware" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="ginUtils" />
-      <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
+      <working_directory value="$PROJECT_DIR$/middleware" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/520MianXiangDuiXiang520/ginUtils" />
+      <package value="github.com/520MianXiangDuiXiang520/ginUtils/middleware" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHandler\E$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseAuthMiddleware\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils/middleware 中的 TestBaseAuthMiddleware" />
         <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (4)" />
         <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (3)" />
         <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (2)" />
         <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler (1)" />
-        <item itemvalue="Go 测试.github.com/520MianXiangDuiXiang520/ginUtils 中的 TestHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +144,8 @@
     <MESSAGE value="add: 添加几个中间件" />
     <MESSAGE value="add: 添加 gin 请求转 Websocket 工具" />
     <MESSAGE value="fix: 修复包名" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复包名" />
+    <MESSAGE value="fix: 修复 Handler 无法设置 http response code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复 Handler 无法设置 http response code" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

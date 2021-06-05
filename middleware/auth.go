@@ -1,30 +1,48 @@
 package middleware
 
 import (
-	"github.com/520MianXiangDuiXiang520/ginUtils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-type UserBase interface {
-	GetID() int
-}
+// AuthFunc 用于身份验证，如果验证通过，应该将用户对象返回，反之第二个参数应该
+// 返回 false，该类型只用于作为参数传递给认证中间件，具体用法请参考
+// BaseAuthMiddleware 的示例。
+type AuthFunc func(ctx *gin.Context) (user interface{}, authed bool)
 
-// 检查授权，如果授权通过，返回授权用户，否则第二个参数返回 false
-type AuthFunc func(context *gin.Context) (UserBase, bool)
-
-// 授权中间件，注册使用中间件后，如果授权未通过（af() return nil, false）
-// 请求会被在此拦截并响应 301，反之， 如果授权通过，会在请求上下文对象 context
-// 中添加一个 user 字段，保存授权的用户信息，授权后可以使用 ctx.Get("user")
-// 经过类型转换后获取到该 User 对象
-func Auth(af AuthFunc) gin.HandlerFunc {
+// BaseAuthMiddleware 拦截请求，并使用 f 验证请求状态，如果验证不通过（f 返回 nil, false）
+// 会直接响应 401(Unauthorized), 反之，验证通过该中间件会将请求状态（由 f 返回）保存在上下文的
+// user 属性中，在应用逻辑中，你可以使用 context.Get("user") 获取到。
+// 如果传入的 f 为空，该中间件不起任何作用；
+// errResp 用于自定义认证失败时的响应数据，默认为 {"header": {"code": 401, "msg": "Unauthorized"}}.
+func BaseAuthMiddleware(f AuthFunc, errResp interface{}) gin.HandlerFunc {
 	return func(context *gin.Context) {
-		user, ok := af(context)
+		if f == nil {
+			context.Next()
+			return
+		}
+		if errResp == nil {
+			errResp = map[string]interface{}{
+				"header": map[string]interface{}{
+					"code": http.StatusUnauthorized,
+					"msg":  "Unauthorized",
+				},
+			}
+		}
+		user, ok := f(context)
 		if !ok {
 			context.Abort()
-			context.JSON(http.StatusUnauthorized,
-				ginUtils.UnauthorizedRespHeader)
+			context.JSON(http.StatusUnauthorized, errResp)
+			return
 		}
-		context.Set("user", user)
+		if user != nil {
+			context.Set("user", user)
+		}
+		context.Next()
 	}
+}
+
+// Deprecated: 为了兼容旧版本而存在，请使用 BaseAuthMiddleware
+func Auth(af AuthFunc) gin.HandlerFunc {
+	return BaseAuthMiddleware(af, nil)
 }
